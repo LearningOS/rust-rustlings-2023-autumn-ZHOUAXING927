@@ -31,6 +31,7 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
     for r in results.lines() {
         let v: Vec<&str> = r.split(',').collect();
         let team_1_name = v[0].to_string();
+        println!("{}", team_1_name);
         let team_1_score: u8 = v[2].parse().unwrap();
         let team_2_name = v[1].to_string();
         let team_2_score: u8 = v[3].parse().unwrap();
