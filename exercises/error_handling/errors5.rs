@@ -1,6 +1,6 @@
 // errors5.rs
 //
-// This program uses an altered version of the code from errors4.
+// THIS PROGRAM USES AN ALTERED VERSION OF THE CODE FROM ERRORS4.
 //
 // This exercise uses some concepts that we won't get to until later in the
 // course, like `Box` and the `From` trait. It's not important to understand
@@ -22,14 +22,14 @@
 // Execute `rustlings hint errors5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
 use std::error;
+use std::error::Error;
 use std::fmt;
+use std::fmt::{Display, Formatter};
 use std::num::ParseIntError;
 
 // TODO: update the return type of `main()` to make this compile.
-fn main() -> Result<(), Box<dyn ???>> {
+fn main() -> Result<(), Box<dyn Error>> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
@@ -67,5 +67,6 @@ impl fmt::Display for CreationError {
         f.write_str(description)
     }
 }
+
 
 impl error::Error for CreationError {}
